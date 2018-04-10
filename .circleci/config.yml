@@ -80,7 +80,7 @@ jobs:
           key: v1-{{ .Branch }}
           paths:
             - docker-setup-phoenix.tar
-      - push:
+      - run:
           name: Push image to DockerHub
           command: |
             login="$(docker login}"
