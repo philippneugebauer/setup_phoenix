@@ -47,9 +47,9 @@ jobs:
           name: Wait for DB
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run: mix test
-      - store_test_results:
-          path: _build/test/lib/setup_phoenix/test_report.xml
       - store_artifacts:
+          path: _build/test/lib/setup_phoenix/test_report.xml
+      - store_test_results:
           path: _build/test/lib/setup_phoenix/test_report.xml
       - run:
           name: Create report folder
