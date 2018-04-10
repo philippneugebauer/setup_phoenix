@@ -8,6 +8,8 @@ defmodule SetupPhoenix.Mixfile do
       elixir: "~> 1.4",
       elixirc_paths: elixirc_paths(Mix.env),
       compilers: [:phoenix, :gettext] ++ Mix.compilers,
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: ["coveralls": :test, "coveralls.detail": :test, "coveralls.post": :test, "coveralls.html": :test],
       start_permanent: Mix.env == :prod,
       aliases: aliases(),
       deps: deps()
@@ -41,7 +43,8 @@ defmodule SetupPhoenix.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
-      {:credo, "~> 0.9", only: [:dev, :test], runtime: false}
+      {:credo, "~> 0.9", only: [:dev, :test], runtime: false},
+      {:excoveralls, "~> 0.8", only: [:dev, :test]}
     ]
   end
 
