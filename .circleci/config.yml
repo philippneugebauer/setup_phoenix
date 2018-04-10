@@ -1,6 +1,7 @@
 version: 2
 jobs:
   build:
+    working_directory: /phoenix
     parallelism: 1
     docker:
       - image: circleci/elixir:1.5
@@ -13,9 +14,6 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_DB: setup_phoenix_test
           POSTGRES_PASSWORD: postgres
-
-    working_directory: ~/phoenix
-
     steps:
       - checkout
       - run: mix local.hex --force
@@ -51,3 +49,52 @@ jobs:
       - run: mix test
       - store_test_results:
           path: _build/test/lib/setup_phoenix
+  build_push_image:
+    working_directory: /phoenix
+    parallelism: 1
+    docker:
+      - image: docker:18.03.0-ce-git
+    steps:
+      - checkout
+      - setup_remote_docker:
+          version: 17.10.0-ce
+      - restore_cache:
+          keys:
+            - v1-{{ .Branch }}
+          paths:
+            - docker-setup-phoenix.tar
+      - run:
+          name: Load Docker image layer cache
+          command: |
+            set +o pipefail
+            docker load -i docker-setup-phoenix.tar || true
+      - run:
+          name: Build application Docker image
+          command: |
+            docker build --cache-from=setup-phoenix -t setup-phoenix .
+      - run:
+          name: Save Docker image layer cache
+          command: |
+            docker save -o docker-setup-phoenix.tar setup-phoenix
+      - save_cache:
+          key: v1-{{ .Branch }}
+          paths:
+            - docker-setup-phoenix.tar
+      - push:
+          name: Push image to DockerHub
+          command: |
+            login="$(docker login}"
+            ${login}
+            docker tag setup-phoenix:latest philippneugebauer/setup_phoenix:latest
+            docker push philippneugebauer/setup_phoenix:latest
+workflows:
+  version: 2
+  test_build_push:
+    jobs:
+      - test
+      - build_push_image:
+          requires:
+            - test
+          filters:
+            branches:
+              only: master
