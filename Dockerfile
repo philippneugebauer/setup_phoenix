@@ -18,7 +18,7 @@ COPY --chown=daemon mix.exs mix.lock ./
 COPY --chown=daemon assets/package.json assets/package-lock.json assets/brunch-config.js assets/
 RUN mix deps.get --only prod && cd assets && npm install
 
-RUN mix compile && cd assets && node_modules/brunch/bin/brunch build --production
+RUN mix compile
 
 COPY --chown=daemon . /phoenix
 
