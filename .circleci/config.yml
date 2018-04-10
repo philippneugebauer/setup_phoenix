@@ -83,7 +83,7 @@ jobs:
       - run:
           name: Push image to DockerHub
           command: |
-            login="$(docker login}"
+            login="$(docker login)"
             ${login}
             docker tag setup-phoenix:latest philippneugebauer/setup_phoenix:latest
             docker push philippneugebauer/setup_phoenix:latest
