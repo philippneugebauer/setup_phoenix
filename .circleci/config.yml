@@ -48,7 +48,7 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run: mix test
       - store_test_results:
-          path: _build/test/lib/setup_phoenix/test_report.xml
+          path: _build/test/lib/setup_phoenix/
       - run:
           name: Create report folder
           command: mkdir -p tmp
@@ -65,6 +65,8 @@ jobs:
           name: Check code quality
           command: mix credo --strict | tee tmp/credo.txt
           when: always
+      - store_artifacts:
+          path: tmp/
   build_push_image:
     working_directory: ~/phoenix
     parallelism: 1
