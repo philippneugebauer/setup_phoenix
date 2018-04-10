@@ -61,7 +61,7 @@ jobs:
           when: always
       - run:
           name: Check code quality
-          command: mix credo | tee tmp/credo.txt
+          command: mix credo --strict | tee tmp/credo.txt
           when: always
       - store_artifacts:
           path: tmp/
