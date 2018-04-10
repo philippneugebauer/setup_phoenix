@@ -51,6 +51,11 @@ jobs:
           path: _build/test/lib/setup_phoenix/test_report.xml
       - store_artifacts:
           path: _build/test/lib/setup_phoenix/test_report.xml
+      - run: mkdir -p tmp
+      - run: mix coveralls.detail | tee tmp/coveralls.txt
+      - run: mix credo | tee tmp/credo.txt
+      - store_artifacts:
+          path: tmp/
   build_push_image:
     working_directory: ~/phoenix
     parallelism: 1
