@@ -21,6 +21,19 @@ config :setup_phoenix, SetupPhoenixWeb.Endpoint,
 # Do not print debug messages in production
 config :logger, level: :info
 
+config :setup_phoenix, SetupPhoenixWeb.Endpoint,
+  secret_key_base: System.get_env("SECRET_KEY_BASE")
+
+# Configure your database
+config :setup_phoenix, SetupPhoenix.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  hostname: System.get_env("DB_HOST"),
+  username: System.get_env("DB_USER"),
+  password: System.get_env("DB_PW"),
+  database: "setup_phoenix_prod",
+  ssl: true,
+  pool_size: 15
+
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key
@@ -58,7 +71,3 @@ config :logger, level: :info
 #
 #     config :setup_phoenix, SetupPhoenixWeb.Endpoint, server: true
 #
-
-# Finally import the config/prod.secret.exs
-# which should be versioned separately.
-import_config "prod.secret.exs"
