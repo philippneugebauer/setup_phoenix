@@ -44,7 +44,8 @@ defmodule SetupPhoenix.Mixfile do
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       {:credo, "~> 0.9", only: [:dev, :test], runtime: false},
-      {:excoveralls, "~> 0.8", only: [:dev, :test]}
+      {:excoveralls, "~> 0.8", only: [:dev, :test]},
+      {:junit_formatter, "~> 2.2", only: [:test]}
     ]
   end
 
