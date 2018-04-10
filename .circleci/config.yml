@@ -51,11 +51,17 @@ jobs:
           path: _build/test/lib/setup_phoenix/test_report.xml
       - store_artifacts:
           path: _build/test/lib/setup_phoenix/test_report.xml
-      - run: mkdir -p tmp
+      - run:
+          name: Create report folder
+          command: mkdir -p tmp
           when: always
-      - run: mix coveralls.detail | tee tmp/coveralls.txt
+      - run:
+          name: Check code coverage
+          command: mix coveralls.detail | tee tmp/coveralls.txt
           when: always
-      - run: mix credo | tee tmp/credo.txt
+      - run:
+          name: Check code quality
+          command: mix credo | tee tmp/credo.txt
           when: always
       - store_artifacts:
           path: tmp/
