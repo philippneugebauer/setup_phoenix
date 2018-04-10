@@ -1,7 +1,7 @@
 version: 2
 jobs:
   test:
-    working_directory: /phoenix
+    working_directory: ~/phoenix
     parallelism: 1
     docker:
       - image: circleci/elixir:1.5
@@ -50,7 +50,7 @@ jobs:
       - store_test_results:
           path: _build/test/lib/setup_phoenix
   build_push_image:
-    working_directory: /phoenix
+    working_directory: ~/phoenix
     parallelism: 1
     docker:
       - image: docker:18.03.0-ce-git
