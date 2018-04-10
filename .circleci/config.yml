@@ -93,8 +93,8 @@ workflows:
     jobs:
       - test
       - build_push_image:
-        requires:
-          - test
-        filters:
-          branches:
-            only: master
+          requires:
+            - test
+          filters:
+            branches:
+              only: master
