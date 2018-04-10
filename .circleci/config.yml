@@ -52,8 +52,11 @@ jobs:
       - store_artifacts:
           path: _build/test/lib/setup_phoenix/test_report.xml
       - run: mkdir -p tmp
+          when: always
       - run: mix coveralls.detail | tee tmp/coveralls.txt
+          when: always
       - run: mix credo | tee tmp/credo.txt
+          when: always
       - store_artifacts:
           path: tmp/
   build_push_image:
