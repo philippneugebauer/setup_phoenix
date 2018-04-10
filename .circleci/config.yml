@@ -51,7 +51,7 @@ jobs:
           path: _build/test/lib/setup_phoenix/test_report.xml
       - run:
           name: Create report folder
-          command: _build/test/lib/setup_phoenix/test_report.xml
+          command: mkdir -p tmp
           when: always
       - run:
           name: Copy test results
