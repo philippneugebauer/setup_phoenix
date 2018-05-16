@@ -18,6 +18,8 @@ defmodule SetupPhoenixWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+
+    forward "/beaker", Beaker.Web
   end
 
   # Other scopes may use custom stacks.

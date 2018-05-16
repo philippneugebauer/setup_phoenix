@@ -1,5 +1,6 @@
 defmodule SetupPhoenix.Repo do
   use Ecto.Repo, otp_app: :setup_phoenix
+  use Beaker.Integrations.Ecto
 
   @doc """
   Dynamically loads the repository url from the

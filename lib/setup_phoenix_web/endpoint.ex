@@ -37,6 +37,8 @@ defmodule SetupPhoenixWeb.Endpoint do
     key: "_setup_phoenix_key",
     signing_salt: "pFaojkoJ"
 
+  plug Beaker.Integrations.Phoenix
+
   plug SetupPhoenixWeb.Router
 
   @doc """
