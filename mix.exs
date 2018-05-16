@@ -22,7 +22,7 @@ defmodule SetupPhoenix.Mixfile do
   def application do
     [
       mod: {SetupPhoenix.Application, []},
-      extra_applications: [:logger, :runtime_tools, :rollbax, :beaker, :plug_logger_json]
+      extra_applications: [:logger, :runtime_tools, :rollbax, :beaker, :plug_logger_json, :comeonin]
     ]
   end
 
@@ -50,7 +50,9 @@ defmodule SetupPhoenix.Mixfile do
       {:rollbax, "~> 0.6"},
       {:guardian, "~> 1.0"},
       {:beaker, ">= 1.2.0"},
-      {:plug_logger_json, "~> 0.6.0"}
+      {:plug_logger_json, "~> 0.6.0"},
+      {:bcrypt_elixir, "~> 1.0"},
+      {:comeonin, "~> 4.0"}
     ]
   end
 
