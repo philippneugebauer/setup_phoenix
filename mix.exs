@@ -43,6 +43,7 @@ defmodule SetupPhoenix.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
+      {:apex, "~> 1.2", only: :dev},
       {:credo, "~> 0.9", only: [:dev, :test], runtime: false},
       {:excoveralls, "~> 0.8", only: [:dev, :test]},
       {:junit_formatter, "~> 2.2", only: [:test]}
