@@ -48,6 +48,9 @@ config :logger, :console, format: "[$level] $message\n"
 # in production as building large stacktraces may be expensive.
 config :phoenix, :stacktrace_depth, 20
 
+config :setup_phoenix, Mailer,
+  adapter: Swoosh.Adapters.Local
+
 # Configure your database
 config :setup_phoenix, SetupPhoenix.Repo,
   adapter: Ecto.Adapters.Postgres,
