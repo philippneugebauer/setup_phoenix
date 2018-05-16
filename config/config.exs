@@ -26,6 +26,10 @@ config :junit_formatter,
   report_file: "test_report.xml",
   print_report_file: true
 
+config :setup_phoenix, SetupPhoenix.Guardian,
+  issuer: "setup_phoenix",
+  secret_key: "aE3K7bW69gk5P0ad6CbjTNVkf6TeOKGNfr7cL7iXByVrLylBNfXd3iKaFGP4DpE6"
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"

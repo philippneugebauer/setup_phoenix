@@ -34,6 +34,10 @@ config :setup_phoenix, SetupPhoenix.Repo,
   ssl: true,
   pool_size: 15
 
+config :setup_phoenix, SetupPhoenix.Guardian,
+  issuer: "setup_phoenix",
+  secret_key: System.get_env("GUARDIAN_SECRET_KEY")
+
 config :rollbax,
   access_token: System.get_env("ROLLBAR_ACCESS_TOKEN"),
   environment: "production",
