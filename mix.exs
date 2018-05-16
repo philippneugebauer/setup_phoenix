@@ -22,7 +22,7 @@ defmodule SetupPhoenix.Mixfile do
   def application do
     [
       mod: {SetupPhoenix.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :rollbax]
     ]
   end
 
@@ -46,7 +46,8 @@ defmodule SetupPhoenix.Mixfile do
       {:apex, "~> 1.2", only: :dev},
       {:credo, "~> 0.9", only: [:dev, :test], runtime: false},
       {:excoveralls, "~> 0.8", only: [:dev, :test]},
-      {:junit_formatter, "~> 2.2", only: [:test]}
+      {:junit_formatter, "~> 2.2", only: [:test]},
+      {:rollbax, "~> 0.6"}
     ]
   end
 

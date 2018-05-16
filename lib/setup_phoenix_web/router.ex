@@ -1,5 +1,6 @@
 defmodule SetupPhoenixWeb.Router do
   use SetupPhoenixWeb, :router
+  use SetupPhoenix.RollbaxErrorHandler
 
   pipeline :browser do
     plug :accepts, ["html"]
