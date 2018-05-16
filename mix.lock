@@ -3,6 +3,7 @@
   "base64url": {:hex, :base64url, "0.0.1", "36a90125f5948e3afd7be97662a1504b934dd5dac78451ca6e9abf85a10286be", [:rebar], []},
   "bcrypt_elixir": {:hex, :bcrypt_elixir, "1.0.6", "58a865939b3106d5ad4841f660955b958be6db955dda034fbbc1069dbacb97fa", [:make, :mix], [{:elixir_make, "~> 0.4", [hex: :elixir_make, optional: false]}]},
   "beaker": {:hex, :beaker, "1.3.0", "c3d7264016881681e3b0d5fd8630c7e6c354948d09eda7e6bdbf342655fe646c", [:mix], [{:bureaucrat, "~> 0.1.4", [hex: :bureaucrat, optional: false]}, {:ecto, "~> 2.0", [hex: :ecto, optional: true]}, {:phoenix, "~> 1.2.1", [hex: :phoenix, optional: true]}]},
+  "bodyguard": {:hex, :bodyguard, "2.2.2", "d5d1ea325b395ed8edcdcedb8632290e92fe9061ee1fe2de86aa00ca918ab96b", [:mix], [{:plug, "~> 1.0", [hex: :plug, optional: false]}]},
   "bunt": {:hex, :bunt, "0.2.0", "951c6e801e8b1d2cbe58ebbd3e616a869061ddadcc4863d0a2182541acae9a38", [:mix], []},
   "bureaucrat": {:hex, :bureaucrat, "0.1.4", "63c955828ba6f47f8978d984031e7a208402f634db899999e12352bb72f21aaf", [:mix], [{:plug, "~> 0.14 or ~> 1.0", [hex: :plug, optional: false]}]},
   "certifi": {:hex, :certifi, "2.3.1", "d0f424232390bf47d82da8478022301c561cf6445b5b5fb6a84d49a9e76d2639", [:rebar3], [{:parse_trans, "3.2.0", [hex: :parse_trans, optional: false]}]},

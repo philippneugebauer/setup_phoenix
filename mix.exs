@@ -55,7 +55,8 @@ defmodule SetupPhoenix.Mixfile do
       {:comeonin, "~> 4.0"},
       {:swoosh, "~> 0.13"},
       {:timex, "~> 3.1"},
-      {:timex_ecto, "~> 3.0"}
+      {:timex_ecto, "~> 3.0"},
+      {:bodyguard, "~> 2.1"}
     ]
   end
 
