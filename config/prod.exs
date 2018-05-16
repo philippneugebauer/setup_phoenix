@@ -19,7 +19,10 @@ config :setup_phoenix, SetupPhoenixWeb.Endpoint,
   cache_static_manifest: "priv/static/cache_manifest.json"
 
 # Do not print debug messages in production
-config :logger, level: :info
+config :logger, :console,
+  level: System.get_env("LOG_LEVEL"),
+  format: "$message\n",
+  metadata: [:request_id]
 
 config :setup_phoenix, SetupPhoenixWeb.Endpoint,
   secret_key_base: System.get_env("SECRET_KEY_BASE")

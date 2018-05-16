@@ -19,8 +19,7 @@ config :setup_phoenix, SetupPhoenixWeb.Endpoint,
 
 # Configures Elixir's Logger
 config :logger, :console,
-  format: "$time $metadata[$level] $message\n",
-  metadata: [:user_id]
+  format: "$time $message\n"
 
 config :junit_formatter,
   report_file: "test_report.xml",
@@ -29,6 +28,10 @@ config :junit_formatter,
 config :setup_phoenix, SetupPhoenix.Guardian,
   issuer: "setup_phoenix",
   secret_key: "aE3K7bW69gk5P0ad6CbjTNVkf6TeOKGNfr7cL7iXByVrLylBNfXd3iKaFGP4DpE6"
+
+config :plug_logger_json,
+  filtered_keys: ["password", "authorization"],
+  suppressed_keys: ["api_version", "log_type"]
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
