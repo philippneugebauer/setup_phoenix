@@ -18,9 +18,9 @@ defmodule SetupPhoenixWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
-
-    forward "/beaker", Beaker.Web
   end
+
+  forward "/beaker", Beaker.Web
 
   if Mix.env == :dev do
     scope "/dev" do
