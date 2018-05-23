@@ -13,6 +13,7 @@ defmodule SetupPhoenix.Accounts.User do
 
   schema "users" do
     field :encrypted_password, :string
+    field :email, :string
     field :firstname, :string
     field :lastname, :string
     field :role, :string
@@ -22,8 +23,8 @@ defmodule SetupPhoenix.Accounts.User do
     timestamps()
   end
 
-  def check_credentials(%{"firstname" => firstname, "password" => password} = params) do
-    user = Repo.get_by(User, firstname: firstname)
+  def check_credentials(%{"email" => email, "password" => password} = params) do
+    user = Repo.get_by(User, email: email)
     compare_password(password, user, params)
   end
 
@@ -45,8 +46,8 @@ defmodule SetupPhoenix.Accounts.User do
   @doc false
   def changeset(user, attrs \\ %{}) do
     user
-    |> cast(attrs, [:firstname, :lastname, :password, :role, :avatar])
-    |> validate_required([:firstname, :lastname, :password, :role])
+    |> cast(attrs, [:email, :firstname, :lastname, :password, :role, :avatar])
+    |> validate_required([:email, :firstname, :lastname, :password, :role])
     |> unique_constraint(:firstname)
     |> hash_password()
   end
