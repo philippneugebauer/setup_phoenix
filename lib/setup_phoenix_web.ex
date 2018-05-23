@@ -53,6 +53,8 @@ defmodule SetupPhoenixWeb do
 
       import SetupPhoenixWeb.Router.Helpers
       import SetupPhoenixWeb.ErrorHelpers
+      import SetupPhoenixWeb.FontAwesomeHelpers
+      import SetupPhoenixWeb.TimeHelpers
       import SetupPhoenixWeb.Gettext
     end
   end
