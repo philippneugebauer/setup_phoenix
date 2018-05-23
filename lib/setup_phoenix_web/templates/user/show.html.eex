@@ -1,5 +1,7 @@
 <h2>Show User</h2>
 
+<%= img_tag SetupPhoenix.Avatar.url({"original.jpg", @user}, :original), class: "rounded-circle mx-auto d-block mb-3 user-avatar" %>
+
 <ul>
 
   <li>

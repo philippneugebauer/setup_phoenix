@@ -36,6 +36,8 @@ defmodule SetupPhoenixWeb do
       import Plug.Conn
       import SetupPhoenixWeb.Router.Helpers
       import SetupPhoenixWeb.Gettext
+
+      alias Ecto.Changeset
     end
   end
 

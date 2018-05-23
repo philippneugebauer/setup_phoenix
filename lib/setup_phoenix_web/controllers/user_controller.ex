@@ -3,6 +3,8 @@ defmodule SetupPhoenixWeb.UserController do
 
   alias SetupPhoenix.Accounts
   alias SetupPhoenix.Accounts.User
+  alias SetupPhoenix.Avatar
+  alias SetupPhoenix.Repo
 
   action_fallback SetupPhoenixWeb.FallbackController
 
@@ -25,8 +27,11 @@ defmodule SetupPhoenixWeb.UserController do
   def create(conn, %{"user" => user_params}) do
     with :ok <- Bodyguard.permit(SetupPhoenix.Abilities, :write_user, conn.assigns.current_user, nil)
     do
-      case Accounts.create_user(user_params) do
+      changeset = User.changeset(%User{}, user_params)
+      case Repo.insert(changeset) do
         {:ok, user} ->
+          avatar = Changeset.get_change(changeset, :avatar)
+          unless is_nil(avatar), do: {:ok, _} = Avatar.store({avatar, user})
           conn
           |> put_flash(:info, "User created successfully.")
           |> redirect(to: user_path(conn, :show, user))
@@ -58,9 +63,14 @@ defmodule SetupPhoenixWeb.UserController do
     with :ok <- Bodyguard.permit(SetupPhoenix.Abilities, :write_user, conn.assigns.current_user, nil)
     do
       user = Accounts.get_user!(id)
+      changeset = User.changeset(user, user_params)
 
-      case Accounts.update_user(user, user_params) do
+      case Repo.update(changeset) do
         {:ok, user} ->
+          avatar = Changeset.get_change(changeset, :avatar)
+          unless is_nil(avatar) do
+            {:ok, _} = Avatar.store({avatar, user})
+          end
           conn
           |> put_flash(:info, "User updated successfully.")
           |> redirect(to: user_path(conn, :show, user))
@@ -74,6 +84,7 @@ defmodule SetupPhoenixWeb.UserController do
     with :ok <- Bodyguard.permit(SetupPhoenix.Abilities, :write_user, conn.assigns.current_user, nil)
     do
       user = Accounts.get_user!(id)
+      :ok = Avatar.delete({"original.jpg", user})
       {:ok, _user} = Accounts.delete_user(user)
 
       conn
