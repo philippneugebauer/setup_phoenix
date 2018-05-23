@@ -4,7 +4,7 @@ defmodule SetupPhoenix.Guardian do
   alias SetupPhoenix.Accounts.User
   alias SetupPhoenix.Repo
 
-  def subject_for_token(user = %User{}, _claims) do
+  def subject_for_token(%User{} = user, _claims) do
     {:ok, user.firstname}
   end
 

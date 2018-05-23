@@ -18,12 +18,12 @@ defmodule SetupPhoenix.Accounts.User do
     timestamps()
   end
 
-  def check_credentials(params = %{"firstname" => firstname, "password" => password}) do
+  def check_credentials(%{"firstname" => firstname, "password" => password} = params) do
     user = Repo.get_by(User, firstname: firstname)
     compare_password(password, user, params)
   end
 
-  defp compare_password(password, user = %User{}, params) do
+  defp compare_password(password, %User{} = user, params) do
     if Bcrypt.checkpw(password, user.encrypted_password) do
       {:ok, user}
     else
