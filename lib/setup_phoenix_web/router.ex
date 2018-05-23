@@ -10,16 +10,19 @@ defmodule SetupPhoenixWeb.Router do
     plug :put_secure_browser_headers
   end
 
-  pipeline :api do
-    plug :accepts, ["json"]
+  pipeline :browser_session do
+    plug SetupPhoenix.AuthAccessPipeline
   end
 
   scope "/", SetupPhoenixWeb do
-    pipe_through :browser # Use the default browser stack
+    pipe_through [:browser, :browser_session] # Use the default browser stack
 
     get "/", UserController, :index
     resources "/users", UserController
-    get "/", PageController, :index
+
+    get "/login", SessionController, :new
+    post "/login", SessionController, :create
+    post "/logout", SessionController, :destroy
   end
 
   forward "/beaker", Beaker.Web
