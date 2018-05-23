@@ -17,6 +17,8 @@ defmodule SetupPhoenixWeb.Router do
   scope "/", SetupPhoenixWeb do
     pipe_through :browser # Use the default browser stack
 
+    get "/", UserController, :index
+    resources "/users", UserController
     get "/", PageController, :index
   end
 
