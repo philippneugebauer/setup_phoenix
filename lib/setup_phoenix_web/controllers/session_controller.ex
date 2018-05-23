@@ -39,7 +39,7 @@ defmodule SetupPhoenixWeb.SessionController do
       conn
       |> Plug.sign_out
       |> put_flash(:info, gettext("You have successfully logged out!"))
-      |> redirect(to: "/")
+      |> redirect(to: "/login")
     end
 
   end
