@@ -1,4 +1,7 @@
 defmodule SetupPhoenix.Avatar do
+  @moduledoc """
+    Avatar for user module
+  """
   use Arc.Definition
 
   # Include ecto support (requires package arc_ecto installed):

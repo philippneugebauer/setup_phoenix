@@ -1,4 +1,7 @@
 defmodule SetupPhoenixWeb.FontAwesomeHelpers do
+  @moduledoc """
+    Helper module to provide central functions to utlize font awesome icons and to add meaningful names
+  """
   use Phoenix.HTML
 
   def icon(icon, icon_group \\ "fa", text \\ nil, title \\ nil) do

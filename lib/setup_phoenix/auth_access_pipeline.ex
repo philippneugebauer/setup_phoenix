@@ -1,4 +1,7 @@
 defmodule SetupPhoenix.AuthAccessPipeline do
+  @moduledoc """
+    Provides the Guardian AuthAccessPipeline to verify the session data and to load and set the user
+  """
   use Guardian.Plug.Pipeline, otp_app: :setup_phoenix
 
   plug Guardian.Plug.VerifySession, claims: %{"typ" => "access"}

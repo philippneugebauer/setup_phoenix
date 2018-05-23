@@ -1,4 +1,7 @@
 defmodule SetupPhoenix.Plug.CurrentUserPlug do
+  @moduledoc """
+    Assigns the current resource to each connection, in this case the logged in user
+  """
   def init(opts), do: opts
 
   def call(conn, _opts) do

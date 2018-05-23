@@ -1,4 +1,7 @@
 defmodule SetupPhoenix.Guardian do
+  @moduledoc """
+    The Guardian module to set and retrieve the user data from the session
+  """
   use Guardian, otp_app: :setup_phoenix
 
   alias SetupPhoenix.Accounts.User

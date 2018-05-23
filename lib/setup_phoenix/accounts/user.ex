@@ -1,4 +1,7 @@
 defmodule SetupPhoenix.Accounts.User do
+  @moduledoc """
+    User module
+  """
   use SetupPhoenixWeb, :model
 
   alias SetupPhoenix.Accounts.User

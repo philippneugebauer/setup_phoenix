@@ -1,4 +1,7 @@
 defmodule SetupPhoenix.Abilities do
+  @moduledoc """
+    Defines what each user is allowed to in each context
+  """
   @behaviour Bodyguard.Policy
 
   alias SetupPhoenix.Accounts.User
