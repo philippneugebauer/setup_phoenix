@@ -1,20 +1,16 @@
-# SetupPhoenix
+# Utilize Phoenix Better
 
-To start your Phoenix server:
+That's the corresponding code of my [Utilize Phoenix Better](https://speakerdeck.com/philippneugebauer/utilize-phoenix-better) talk.
+It has implemented the update proposal of `phoenix` dependencies and utilizes also the other recommended libraries. Thereby, it demonstrates their usage in a simple setup.
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
-  * Install Node.js dependencies with `cd assets && npm install`
-  * Start Phoenix endpoint with `mix phx.server`
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+## Talk Description
 
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
+Starting a new project, especially based on a new technology, requires a lot decisions about the technology stack.
+Unfortunately, the later a decision is proven to be wrong, the more expensive it is to correct the decision.
 
-## Learn more
-
-  * Official website: http://www.phoenixframework.org/
-  * Guides: http://phoenixframework.org/docs/overview
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+In this talk, Philipp shares his ideas for a good setup for Phoenix and also discusses its benefits.
+Thereby, he covers all steps from development to production.
+He will start with beneficial updates of the Phoenix environment to avoid later migrations.
+Subsequently, he provides useful hints for development and suggests libraries,
+after which he demonstrates how you could easily setup your CI/CD pipeline to finally host the application.
