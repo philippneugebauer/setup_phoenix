@@ -15,9 +15,12 @@
     <div class="container">
       <header class="header">
         <nav role="navigation" class="navbar navbar-expand-lg navbar-light bg-light">
+          <%= link "Setup Phoenix", to: "/", class: "navbar-brand" %>
           <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
-              <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
+              <%= if @conn.assigns.current_user do %>
+                <li class="nav-item float-right"><%= link gettext("Logout"), to: session_path(@conn, :destroy) %></li>
+              <% end %>
             </ul>
           </div>
         </nav>
