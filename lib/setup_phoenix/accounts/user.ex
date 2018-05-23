@@ -36,6 +36,11 @@ defmodule SetupPhoenix.Accounts.User do
     end
   end
 
+  defp compare_password(_password, _user, params) do
+    Bcrypt.dummy_checkpw()
+    login_error(params)
+  end
+
   defp login_error(params) do
     changeset = %User{}
       |> cast(params, [:email])
