@@ -42,6 +42,7 @@ config :setup_phoenix, SetupPhoenix.Guardian,
   secret_key: System.get_env("GUARDIAN_SECRET_KEY")
 
 config :rollbax,
+  enabled: true,
   access_token: System.get_env("ROLLBAR_ACCESS_TOKEN"),
   environment: "production",
   enable_crash_reports: true
