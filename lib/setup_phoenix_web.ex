@@ -60,6 +60,23 @@ defmodule SetupPhoenixWeb do
     end
   end
 
+  def email do
+    quote do
+      use Phoenix.View, root: "lib/setup_phoenix_web/templates",
+                        namespace: SetupPhoenixWeb
+
+      # Use all HTML functionality (forms, tags, etc)
+      use Phoenix.HTML
+
+      import SetupPhoenixWeb.Router.Helpers
+      import SetupPhoenixWeb.ErrorHelpers
+      import SetupPhoenixWeb.FontAwesomeHelpers
+      import SetupPhoenixWeb.TimeHelpers
+      import SetupPhoenixWeb.Gettext
+      import Swoosh.Email
+    end
+  end
+
   def router do
     quote do
       use Phoenix.Router

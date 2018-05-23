@@ -47,6 +47,15 @@ config :rollbax,
   environment: "production",
   enable_crash_reports: true
 
+config :setup_phoenix, SetupPhoenix.Mailer,
+  adapter: Swoosh.Adapters.SMTP,
+  relay: System.get_env("SMTP_SRV"),
+  username: System.get_env("SMTP_USR"),
+  password: System.get_env("SMTP_PW"),
+  tls: :always,
+  auth: :always,
+  port: 587
+
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key

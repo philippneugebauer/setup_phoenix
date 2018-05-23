@@ -5,6 +5,7 @@ defmodule SetupPhoenixWeb.UserController do
   alias SetupPhoenix.Accounts.User
   alias SetupPhoenix.Avatar
   alias SetupPhoenix.Repo
+  alias SetupPhoenix.UserMailer
 
   action_fallback SetupPhoenixWeb.FallbackController
 
@@ -33,6 +34,7 @@ defmodule SetupPhoenixWeb.UserController do
           avatar = Changeset.get_change(changeset, :avatar)
           unless is_nil(avatar), do: {:ok, _} = Avatar.store({avatar, user})
           conn
+          |> UserMailer.welcome_mail(user)
           |> put_flash(:info, "User created successfully.")
           |> redirect(to: user_path(conn, :show, user))
         {:error, %Ecto.Changeset{} = changeset} ->

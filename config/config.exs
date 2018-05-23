@@ -27,6 +27,9 @@ config :logger, :console,
 config :rollbax,
   enabled: false
 
+config :setup_phoenix, SetupPhoenix.Mailer,
+  adapter: Swoosh.Adapters.Local
+
 config :setup_phoenix, SetupPhoenix.AuthAccessPipeline,
   module: SetupPhoenix.Guardian,
   error_handler: SetupPhoenix.AuthErrorHandler
