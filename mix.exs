@@ -22,7 +22,7 @@ defmodule SetupPhoenix.Mixfile do
   def application do
     [
       mod: {SetupPhoenix.Application, []},
-      extra_applications: [:logger, :runtime_tools, :rollbax, :beaker, :plug_logger_json, :comeonin, :swoosh, :timex]
+      extra_applications: [:logger, :runtime_tools, :rollbax, :beaker, :plug_logger_json, :comeonin, :timex]
     ]
   end
 
