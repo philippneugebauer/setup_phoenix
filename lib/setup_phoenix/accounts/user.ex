@@ -46,6 +46,7 @@ defmodule SetupPhoenix.Accounts.User do
     user
     |> cast(attrs, [:firstname, :lastname, :password, :role])
     |> validate_required([:firstname, :lastname, :password, :role])
+    |> unique_constraint(:firstname)
     |> hash_password()
   end
 
