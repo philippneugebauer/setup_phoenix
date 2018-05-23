@@ -9,6 +9,10 @@ config :setup_phoenix, SetupPhoenixWeb.Endpoint,
 # Print only warnings and errors during test
 config :logger, level: :warn
 
+config :junit_formatter,
+  report_file: "test_report.xml",
+  print_report_file: true
+
 # Configure your database
 config :setup_phoenix, SetupPhoenix.Repo,
   adapter: Ecto.Adapters.Postgres,
