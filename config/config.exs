@@ -9,6 +9,9 @@ use Mix.Config
 config :setup_phoenix,
   ecto_repos: [SetupPhoenix.Repo]
 
+config :setup_phoenix, SetupPhoenix.Gettext,
+  default_locale: "en"
+
 # Configures the endpoint
 config :setup_phoenix, SetupPhoenixWeb.Endpoint,
   url: [host: "localhost"],
