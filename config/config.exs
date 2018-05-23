@@ -21,6 +21,8 @@ config :setup_phoenix, SetupPhoenixWeb.Endpoint,
 config :logger, :console,
   format: "$time $message\n"
 
+config :rollbax,
+  enabled: false
 config :junit_formatter,
   report_file: "test_report.xml",
   print_report_file: true
