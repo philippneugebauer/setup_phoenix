@@ -21,11 +21,10 @@ defmodule SetupPhoenixWeb do
     quote do
       use Ecto.Schema
 
-      import Ecto
       import Ecto.Changeset
-      import Ecto.Query
+      import Ecto.Queryable
 
-      import SetupPhoenix.Gettext
+      import SetupPhoenixWeb.Gettext
 
       @timestamps_opts [type: Timex.Ecto.DateTime, autogenerate: {Timex.Ecto.DateTime, :autogenerate, [:usec]}]
     end
