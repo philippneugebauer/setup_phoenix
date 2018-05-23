@@ -23,9 +23,10 @@ config :logger, :console,
 
 config :rollbax,
   enabled: false
-config :junit_formatter,
-  report_file: "test_report.xml",
-  print_report_file: true
+
+config :setup_phoenix, SetupPhoenix.AuthAccessPipeline,
+  module: SetupPhoenix.Guardian,
+  error_handler: SetupPhoenix.AuthErrorHandler
 
 config :setup_phoenix, SetupPhoenix.Guardian,
   issuer: "setup_phoenix",
