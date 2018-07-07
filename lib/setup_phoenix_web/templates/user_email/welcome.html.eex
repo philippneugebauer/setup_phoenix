@@ -1,0 +1,10 @@
+<div>
+  <h3>
+    Hello <%= @user.firstname %>,<br>
+    welcome to our SetupPhoenix website!
+    <br>
+    <br>
+    Best regards,<br>
+    Your SetupPhoenix team
+  </h3>
+</div>
