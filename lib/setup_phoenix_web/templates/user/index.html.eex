@@ -23,10 +23,10 @@
       <td><%= format_datetime(user.inserted_at) %></td>
 
       <td>
-        <%= link show_icon(), to: user_path(@conn, :show, user), class: "btn btn-default btn-xs" %>
+        <%= link show_icon(), to: user_path(@conn, :show, user), class: "btn btn-info btn-sm" %>
         <%= if Bodyguard.permit?(SetupPhoenix.Abilities, :write_user, @conn.assigns.current_user, nil) do %>
-          <%= link edit_icon(), to: user_path(@conn, :edit, user), class: "btn btn-default btn-xs" %>
-          <%= link delete_icon(), to: user_path(@conn, :delete, user), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+          <%= link edit_icon(), to: user_path(@conn, :edit, user), class: "btn btn-warning btn-sm" %>
+          <%= link delete_icon(), to: user_path(@conn, :delete, user), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-sm" %>
         <% end %>
       </td>
     </tr>
