@@ -54,12 +54,12 @@ exports.config = {
     sass: {
       mode: 'native',
       options: {
-        includePaths: ["node_modules/font-awesome/scss", "node_modules/bootstrap/scss"],
+        includePaths: ["node_modules/@fortawesome/fontawesome-free/scss", "node_modules/bootstrap/scss"],
         precision: 8
       }
     },
     copycat: {
-      "fonts": ["static/fonts", "node_modules/font-awesome/fonts"],
+      "webfonts": ["static/webfonts", "node_modules/@fortawesome/fontawesome-free/webfonts"],
       verbose: false,
       onlyChanged: true
     }

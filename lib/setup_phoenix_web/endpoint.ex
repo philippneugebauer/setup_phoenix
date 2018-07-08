@@ -7,7 +7,7 @@ defmodule SetupPhoenixWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/", from: :setup_phoenix, gzip: false,
-    only: ~w(css fonts images js favicon.ico robots.txt)
+    only: ~w(css webfonts images js favicon.ico robots.txt)
 
   plug Plug.Static,
     at: "/uploads", from: Path.expand("./uploads"), gzip: false
