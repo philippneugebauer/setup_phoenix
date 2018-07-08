@@ -23,4 +23,8 @@ defmodule SetupPhoenixWeb.FontAwesomeHelpers do
   def show_icon(text \\ nil) do
     icon("search-plus", "fas", text)
   end
+
+  def back_icon(text \\ nil) do
+    icon("arrow-left", "fas", text)
+  end
 end
