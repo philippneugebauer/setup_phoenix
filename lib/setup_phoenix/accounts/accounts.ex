@@ -67,7 +67,7 @@ defmodule SetupPhoenix.Accounts do
       {:error, %Ecto.Changeset{}}
 
   """
-  def update_user(%User{} = user, attrs) do
+  def update_user(user = %User{}, attrs) do
     user
     |> User.changeset(attrs)
     |> Repo.update()
@@ -85,7 +85,7 @@ defmodule SetupPhoenix.Accounts do
       {:error, %Ecto.Changeset{}}
 
   """
-  def delete_user(%User{} = user) do
+  def delete_user(user = %User{}) do
     Repo.delete(user)
   end
 
@@ -98,7 +98,7 @@ defmodule SetupPhoenix.Accounts do
       %Ecto.Changeset{source: %User{}}
 
   """
-  def change_user(%User{} = user) do
+  def change_user(user = %User{}) do
     User.changeset(user, %{})
   end
 end
