@@ -31,8 +31,6 @@ defmodule SetupPhoenixWeb.UserController do
       changeset = User.changeset(%User{}, user_params)
       case Repo.insert(changeset) do
         {:ok, user} ->
-          avatar = Changeset.get_change(changeset, :avatar)
-          unless is_nil(avatar), do: {:ok, _} = Avatar.store({avatar, user})
           conn
           |> UserMailer.welcome_mail(user)
           |> put_flash(:info, "User created successfully.")
@@ -69,10 +67,6 @@ defmodule SetupPhoenixWeb.UserController do
 
       case Repo.update(changeset) do
         {:ok, user} ->
-          avatar = Changeset.get_change(changeset, :avatar)
-          unless is_nil(avatar) do
-            {:ok, _} = Avatar.store({avatar, user})
-          end
           conn
           |> put_flash(:info, "User updated successfully.")
           |> redirect(to: user_path(conn, :show, user))

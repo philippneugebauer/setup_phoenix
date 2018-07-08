@@ -20,6 +20,7 @@ defmodule SetupPhoenixWeb do
   def model do
     quote do
       use Ecto.Schema
+      use Arc.Ecto.Schema
 
       import Ecto.Changeset
       import Ecto.Queryable

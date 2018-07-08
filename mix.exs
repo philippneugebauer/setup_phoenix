@@ -59,7 +59,8 @@ defmodule SetupPhoenix.Mixfile do
       {:timex, "~> 3.1"},
       {:timex_ecto, "~> 3.0"},
       {:bodyguard, "~> 2.1"},
-      {:arc, "~> 0.8.0"}
+      {:arc, "~> 0.10.0"},
+      {:arc_ecto, "~> 0.10.0"},
     ]
   end
 

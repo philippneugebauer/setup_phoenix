@@ -1,6 +1,6 @@
 <h2>Show User <%= link edit_icon(), to: user_path(@conn, :edit, @user), class: "btn btn-warning" %> <%= link back_icon(), to: user_path(@conn, :index), class: "btn btn-secondary mr-1" %></h2>
 
-<%= img_tag SetupPhoenix.Avatar.url({"original.jpg", @user}, :original), class: "rounded-circle mx-auto d-block mb-3 user-avatar" %>
+<%= img_tag SetupPhoenix.Avatar.url({@user.avatar, @user}, :original), class: "rounded-circle mx-auto d-block mb-3 user-avatar" %>
 
 <ul>
 

@@ -3,6 +3,7 @@ defmodule SetupPhoenix.Avatar do
     Avatar for user module
   """
   use Arc.Definition
+  use Arc.Ecto.Definition
 
   @versions [:original]
 
@@ -21,7 +22,7 @@ defmodule SetupPhoenix.Avatar do
     "uploads/users/avatar/#{scope.id}"
   end
 
-  def default_url(:thumb) do
+  def default_url(:original) do
     "https://placehold.it/100x100"
   end
 end

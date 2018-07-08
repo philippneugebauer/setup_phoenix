@@ -17,8 +17,8 @@ defmodule SetupPhoenix.Accounts.User do
     field :firstname, :string
     field :lastname, :string
     field :role, :string
+    field :avatar, SetupPhoenix.Avatar.Type
     field :password, :string, virtual: true
-    field :avatar, :any, virtual: true
 
     timestamps()
   end
@@ -51,8 +51,9 @@ defmodule SetupPhoenix.Accounts.User do
   @doc false
   def changeset(user, attrs \\ %{}) do
     user
-    |> cast(attrs, [:email, :firstname, :lastname, :password, :role, :avatar])
+    |> cast(attrs, [:email, :firstname, :lastname, :password, :role])
     |> validate_required([:email, :firstname, :lastname, :password, :role])
+    |> cast_attachments(attrs, [:avatar])
     |> unique_constraint(:firstname)
     |> hash_password()
   end
