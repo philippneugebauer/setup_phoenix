@@ -1,4 +1,7 @@
 defmodule SetupPhoenix.UserMailer do
+  @moduledoc """
+    Mailer module for user specific mails
+  """
   use SetupPhoenixWeb, :email
 
   alias SetupPhoenix.Accounts.User

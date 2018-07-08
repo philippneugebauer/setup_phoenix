@@ -1,4 +1,7 @@
 defmodule SetupPhoenix.Mailer do
+  @moduledoc """
+    General mailer module for allowing to send emails in async tasks
+  """
   use Swoosh.Mailer, otp_app: :setup_phoenix
   use SetupPhoenixWeb, :email
   use Phoenix.Swoosh, view: SetupPhoenixWeb.UserEmailView, layout: {SetupPhoenixWeb.LayoutView, :email}
