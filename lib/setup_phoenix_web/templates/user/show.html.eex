@@ -5,6 +5,11 @@
 <ul>
 
   <li>
+    <strong>Email:</strong>
+    <%= @user.email %>
+  </li>
+
+  <li>
     <strong>Firstname:</strong>
     <%= @user.firstname %>
   </li>
